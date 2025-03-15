@@ -2,29 +2,31 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CRUDMvvm.Views.AddEditView"
+             xmlns:viewModel="clr-namespace:CRUDMvvm.ViewModels"
+             x:DataType="viewModel:AddEditViewModel"
              Title="Adding A new Contact">
     <VerticalStackLayout Padding="30" Spacing="5">
         <Label 
             Text="Nombre Completo:"/>
-        <Entry Placeholder="Ingrese El nombre Aqui" Keyboard="Text"/>
+        <Entry Text="{Binding Nombre}" Placeholder="Ingrese El nombre Aqui" Keyboard="Text"/>
 
         <Label 
              Text="Dirreccion: "/>
-        <Entry Placeholder="Ingrese El nombre Aqui" Keyboard="Text"/>
+        <Entry Text="{Binding Direccion}" Placeholder="Ingrese El nombre Aqui" Keyboard="Text"/>
 
         <Label 
             Text="Numero de Telefono"/>
-        <Entry Placeholder="Ingrese El nombre Aqui" Keyboard="Numeric"/>
+        <Entry Text="{Binding Telefono}" Placeholder="Ingrese El nombre Aqui" Keyboard="Numeric"/>
 
         <Label 
              Text="Correo"/>
-        <Entry Placeholder="Ingrese El nombre Aqui" Keyboard="Email"/>
+        <Entry Text="{Binding Email}" Placeholder="Ingrese El nombre Aqui" Keyboard="Email"/>
 
         <Label 
         Text="ID(Proveedor)"/>
-        <Entry Placeholder="Ingrese El nombre Aqui" Keyboard="Text"/>
+        <Entry Text="{Binding Id}" Placeholder="Ingrese El nombre Aqui" Keyboard="Text"/>
 
-        <Button Text="Guardar" Background="Green"/>
+        <Button  Text="Guardar" Background="Green" Command="{Binding AddUpdateCommand}"/>
 
 
     </VerticalStackLayout>

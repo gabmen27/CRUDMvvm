@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CRUDMvvm.Views.MainView"
+             xmlns:model="clr-namespace:CRUDMvvm.Models"
+             xmlns:viewModel="clr-namespace:CRUDMvvm.ViewModels"
+             x:DataType="viewModel:MainViewModel"
              Title="Proveedores">
 
     <ScrollView>
@@ -10,17 +13,38 @@
                    Margin="10"/>
             <Button Text="Agregar Proveedor" Command="{Binding GoToAddEditViewCommand}"/>
 
-            <Grid Margin="5,5,5,5" RowDefinitions="Auto" ColumnDefinitions="*,*,*" >
-                <Label Text="Nombre" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+            <Grid Margin="5,5,5,5" RowDefinitions="Auto" ColumnDefinitions="*,*,*,*,*" >
+                <Label Text="ID" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                        FontAttributes="Bold"/>
-                <Label Text="Address" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                <Label Text="Nombre" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                        FontAttributes="Bold"/>
-                <Label Text="Email" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                <Label Text="Address" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                        FontAttributes="Bold"/>
+                <Label Text="Telefono" Grid.Row="0" Grid.Column="3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                <Label Text="Email" Grid.Row="0" Grid.Column="4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                
             </Grid>
 
-            
-            
+            <CollectionView ItemsSource="{Binding ProveedorCollection}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Proveedor">
+                        <Grid RowSpacing="0" RowDefinitions="Auto" ColumnDefinitions="*,*,*,*,*">
+                        <Label Text="{Binding id}" Grid.Row="1" Grid.Column="0"/>
+                            <Label Text="{Binding Nombre}" Grid.Row="1" Grid.Column="1"/>
+                            <Label Text="{Binding Direccion}" Grid.Row="1" Grid.Column="2"/>
+                            <Label Text="{Binding numTelefono}" Grid.Row="1" Grid.Column="3"/>
+                            <Label Text="{Binding mail}" Grid.Row="1" Grid.Column="4"/>
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModel:MainViewModel}},Path=SelectProveedorCommand}" CommandParameter="{Binding .}" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
