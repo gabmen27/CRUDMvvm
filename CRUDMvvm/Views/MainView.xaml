@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRUDMvvm.Views.MainView"
+             Title="Proveedores">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <Label Text="Welcome to your DATA BASE"
+                   Margin="10"/>
+            <Button Text="Agregar Proveedor" Command="{Binding GoToAddEditViewCommand}"/>
+
+            <Grid Margin="5,5,5,5" RowDefinitions="Auto" ColumnDefinitions="*,*,*" >
+                <Label Text="Nombre" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                <Label Text="Address" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                <Label Text="Email" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+            </Grid>
+
+            
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

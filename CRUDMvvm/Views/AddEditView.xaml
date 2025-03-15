@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRUDMvvm.Views.AddEditView"
+             Title="Adding A new Contact">
+    <VerticalStackLayout Padding="30" Spacing="5">
+        <Label 
+            Text="Nombre Completo:"/>
+        <Entry Placeholder="Ingrese El nombre Aqui" Keyboard="Text"/>
+
+        <Label 
+             Text="Dirreccion: "/>
+        <Entry Placeholder="Ingrese El nombre Aqui" Keyboard="Text"/>
+
+        <Label 
+            Text="Numero de Telefono"/>
+        <Entry Placeholder="Ingrese El nombre Aqui" Keyboard="Numeric"/>
+
+        <Label 
+             Text="Correo"/>
+        <Entry Placeholder="Ingrese El nombre Aqui" Keyboard="Email"/>
+
+        <Label 
+        Text="ID(Proveedor)"/>
+        <Entry Placeholder="Ingrese El nombre Aqui" Keyboard="Text"/>
+
+        <Button Text="Guardar" Background="Green"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>
